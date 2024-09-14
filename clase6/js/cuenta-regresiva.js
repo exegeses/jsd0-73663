@@ -3,6 +3,9 @@ const txtDias = document.querySelector('#txtDias');
 const txtHoras = document.querySelector('#txtHoras');
 const txtMinutos = document.querySelector('#txtMinutos');
 const txtSegundos = document.querySelector('#txtSegundos');
+const $h1 = document.querySelector('h1');
+
+let intervalo = '';
 
 // declaramos funciones de control
 function agregarCero( numero )
@@ -18,7 +21,7 @@ function descontar()
 {
     //creamos dos objketos de fecha
     const actual = new Date();
-    const final = new Date(2024, 8, 13, 19);
+    const final = new Date(2024, 8, 13, 19, 41);
 
     // calculamos la diferencia de eventos
         // expresado en milisegundos
@@ -49,6 +52,19 @@ function descontar()
     minutos = minutos % 60;
     horas = horas % 24;
 
+/**
+ * Detenemos la cuenta regresiva
+ */
+    if( 
+        dias <= 0 &&
+        horas <= 0 &&
+        minutos <= 0 &&
+        segundos <= 0 
+      ){
+        $h1.innerText = '¡Oferta finalizada!';
+        clearInterval( intervalo );
+    }
+
 
     // imprimimos los valores obtenidos
     txtSegundos.innerText = agregarCero(segundos);
@@ -61,4 +77,4 @@ function descontar()
 descontar();
 
 //actualizamos llamado a función
-setInterval( descontar, 1000 );
+intervalo = setInterval( descontar, 1000 );
