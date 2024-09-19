@@ -60,3 +60,35 @@ nav{
     background-color: #999;
     border-radius: 12px;
 }
+#c-marcas,
+#c-fotos
+{
+    width: 540px;
+    margin: 16px auto;
+    padding: 8px 32px;
+    background-color: hsl(160, 52%, 5%);
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 32px;
+}
+    #c-fotos{
+        height: 360px;
+    }
+    #c-marcas img,
+    #c-fotos img{
+        filter: invert();
+        transition: .5s;
+        cursor: pointer;
+    }
+    #c-marcas img:hover,
+    #c-fotos img:hover
+    {
+        transform: scale(1.2);
+    }
+    #c-fotos figure img{
+        filter: none;
+    }
